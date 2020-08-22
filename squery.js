@@ -17,8 +17,15 @@ function $query(selector){
             self.element.innerHtml = value;
         },
         redirect:(url)=>{
-            location.replace(url)
-        },
+			location.replace(url)
+		},
+		get: (name)=>{
+			var url_string = $query().url;
+			var url = new URL(url_string);
+			var value = url.searchParams.get(name);
+
+			return value;
+		},
         url: window.location.href,
         version:'1.0.0'
     };
